@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    show-sql: false
+
+logging:
+  level:
+    com.dochat: INFO
+    root: WARN
+
+management:
+  endpoint:
+    health:
+      show-details: never

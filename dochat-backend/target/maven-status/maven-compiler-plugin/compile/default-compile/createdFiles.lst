@@ -1,0 +1,17 @@
+com\example\dochat\exception\GlobalExceptionHandler.class
+com\example\dochat\document\service\DocumentIngestionService$1.class
+com\example\dochat\document\dto\DocumentUploadResponse$DocumentUploadResponseBuilder.class
+com\example\dochat\document\dto\DocumentUploadResponse.class
+com\example\dochat\document\dto\DocumentListResponse$DocumentListResponseBuilder.class
+com\example\dochat\document\entity\Document$DocumentStatus.class
+com\example\dochat\document\service\DocumentIngestionService.class
+com\example\dochat\config\DatabaseConfig.class
+com\example\dochat\document\entity\Document$DocumentBuilder.class
+com\example\dochat\exception\DochatException.class
+com\example\dochat\document\dto\DocumentListResponse.class
+com\example\dochat\DochatApplication.class
+com\example\dochat\document\controller\DocumentController.class
+com\example\dochat\document\entity\Document.class
+com\example\dochat\exception\GlobalExceptionHandler$ErrorResponse.class
+com\example\dochat\health\HealthController.class
+com\example\dochat\document\repository\DocumentRepository.class

@@ -1,0 +1,95 @@
+spring:
+  application:
+    name: dochat
+
+  profiles:
+    active: dev
+
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: USER
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB_NAME:dochat}
+    username: ${DB_USERNAME:dochat}
+    password: ${DB_PASSWORD:dochat}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    repair-on-migrate: true
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: 6379
+
+  kafka:
+    bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+
+  cache:
+    type: redis
+
+# ===== SPRING AI =====
+# Using OpenAI-compatible client pointed at Gemini's OpenAI-compatible endpoint
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3.2
+          temperature: 0.3
+      embedding:
+        options:
+          model: nomic-embed-text
+    vectorstore:
+      pgvector:
+        index-type: NONE
+        distance-type: COSINE_DISTANCE
+        dimensions: 768           # MUST change from 3072 to 768 for nomic!
+        initialize-schema: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      show-details: when_authorized
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-ms: 86400000
+    refresh-expiration-ms: 604800000
+    document:
+      chunk-size: 1000
+      chunk-overlap: 200
+      max-files-per-upload: 10
+    rag:
+      top-k: 2
+
+  ocr:
+    tesseract-data-path: C:/Program Files/Tesseract-OCR/tessdata
+    language: eng
+  document:
+    chunk-size: 1000
+    chunk-overlap: 200
+    max-files-per-upload: 10

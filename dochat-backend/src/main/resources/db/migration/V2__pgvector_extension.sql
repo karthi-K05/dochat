@@ -1,0 +1,27 @@
+-- Enable pgvector extension
+CREATE EXTENSION IF NOT EXISTS vector;
+-- -- Enable pgvector extension
+-- CREATE EXTENSION IF NOT EXISTS vector;
+--
+-- -- Document chunks table (vector store)
+-- -- Spring AI's pgvector store auto-manages the 'vector_store' table,
+-- -- but we add metadata columns for user-level isolation
+-- CREATE TABLE document_chunks (
+--                                  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+--                                  document_id     UUID         NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
+--                                  user_id         UUID         NOT NULL REFERENCES users(id)     ON DELETE CASCADE,
+--                                  content         TEXT         NOT NULL,
+--                                  embedding       vector(768),                  -- Gemini text-embedding-004 = 768 dims
+--                                  chunk_index     INTEGER      NOT NULL,
+--                                  metadata        JSONB,
+--                                  created_at      TIMESTAMP    NOT NULL DEFAULT NOW()
+-- );
+--
+-- -- HNSW index for fast approximate nearest-neighbour search
+-- CREATE INDEX idx_chunks_embedding_hnsw
+--     ON document_chunks
+--     USING hnsw (embedding vector_cosine_ops)
+--     WITH (m = 16, ef_construction = 64);
+--
+-- CREATE INDEX idx_chunks_user_id     ON document_chunks(user_id);
+-- CREATE INDEX idx_chunks_document_id ON document_chunks(document_id);

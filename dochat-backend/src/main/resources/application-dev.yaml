@@ -1,0 +1,10 @@
+spring:
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    com.dochat: DEBUG
+    org.springframework.ai: DEBUG
+    org.springframework.security: DEBUG
+    com.dochat.document.service.OcrService: DEBUG

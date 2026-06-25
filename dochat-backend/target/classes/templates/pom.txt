@@ -1,0 +1,221 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+<!--	<modelVersion>4.0.0</modelVersion>-->
+<!--	<parent>-->
+<!--		<groupId>org.springframework.boot</groupId>-->
+<!--		<artifactId>spring-boot-starter-parent</artifactId>-->
+<!--		<version>3.3.0</version>-->
+<!--		<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+<!--	</parent>-->
+<!--	<groupId>com.dochat</groupId>-->
+<!--	<artifactId>dochat</artifactId>-->
+<!--	<version>0.0.1-SNAPSHOT</version>-->
+<!--	<name/>-->
+<!--	<description>Industry-level RAG chatbot with Spring AI + Gemini + pgvector </description>-->
+<!--	<url/>-->
+<!--	<licenses>-->
+<!--		<license/>-->
+<!--	</licenses>-->
+<!--	<developers>-->
+<!--		<developer/>-->
+<!--	</developers>-->
+<!--	<scm>-->
+<!--		<connection/>-->
+<!--		<developerConnection/>-->
+<!--		<tag/>-->
+<!--		<url/>-->
+<!--	</scm>-->
+<!--	<properties>-->
+<!--		<java.version>21</java.version>-->
+<!--		<spring-ai.version>1.0.0-M1</spring-ai.version>-->
+<!--		<mapstruct.version>1.5.5.Final</mapstruct.version>-->
+<!--		<flyway.version>10.12.0</flyway.version>-->
+<!--	</properties>-->
+<!--	<dependencies>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-web</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-validation</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-actuator</artifactId>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== SECURITY (Layer 3) ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-security</artifactId>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== DATABASE ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.postgresql</groupId>-->
+<!--			<artifactId>postgresql</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; pgvector JDBC type support &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>com.pgvector</groupId>-->
+<!--			<artifactId>pgvector</artifactId>-->
+<!--			<version>0.1.6</version>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== FLYWAY (DB Migrations) ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.flywaydb</groupId>-->
+<!--			<artifactId>flyway-core</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.flywaydb</groupId>-->
+<!--			<artifactId>flyway-database-postgresql</artifactId>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== SPRING AI - GEMINI ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.ai</groupId>-->
+<!--			<artifactId>spring-ai-vertex-ai-gemini-spring-boot-starter</artifactId>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== SPRING AI - PDF READER ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.ai</groupId>-->
+<!--			<artifactId>spring-ai-pdf-document-reader</artifactId>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== SPRING AI - PGVECTOR ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.ai</groupId>-->
+<!--			<artifactId>spring-ai-pgvector-store-spring-boot-starter</artifactId>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== JWT ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>io.jsonwebtoken</groupId>-->
+<!--			<artifactId>jjwt-api</artifactId>-->
+<!--			<version>0.12.5</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>io.jsonwebtoken</groupId>-->
+<!--			<artifactId>jjwt-impl</artifactId>-->
+<!--			<version>0.12.5</version>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>io.jsonwebtoken</groupId>-->
+<!--			<artifactId>jjwt-jackson</artifactId>-->
+<!--			<version>0.12.5</version>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== ASYNC / RESILIENCE (Layer 5) ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.kafka</groupId>-->
+<!--			<artifactId>spring-kafka</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>io.github.resilience4j</groupId>-->
+<!--			<artifactId>resilience4j-spring-boot3</artifactId>-->
+<!--			<version>2.2.0</version>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== OBSERVABILITY (Layer 6) ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>io.micrometer</groupId>-->
+<!--			<artifactId>micrometer-registry-prometheus</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>io.micrometer</groupId>-->
+<!--			<artifactId>micrometer-tracing-bridge-otel</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>io.opentelemetry</groupId>-->
+<!--			<artifactId>opentelemetry-exporter-otlp</artifactId>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== REDIS (Caching) ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-redis</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-cache</artifactId>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== UTILITIES ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.projectlombok</groupId>-->
+<!--			<artifactId>lombok</artifactId>-->
+<!--			<optional>true</optional>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.mapstruct</groupId>-->
+<!--			<artifactId>mapstruct</artifactId>-->
+<!--			<version>${mapstruct.version}</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.mapstruct</groupId>-->
+<!--			<artifactId>mapstruct-processor</artifactId>-->
+<!--			<version>${mapstruct.version}</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.pdfbox</groupId>-->
+<!--			<artifactId>pdfbox</artifactId>-->
+<!--			<version>3.0.2</version>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; ===== TESTING ===== &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-test</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.security</groupId>-->
+<!--			<artifactId>spring-security-test</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.testcontainers</groupId>-->
+<!--			<artifactId>postgresql</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.testcontainers</groupId>-->
+<!--			<artifactId>kafka</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+<!--	</dependencies>-->
+<!--	<dependencyManagement>-->
+<!--		<dependencies>-->
+<!--			<dependency>-->
+<!--				<groupId>org.springframework.ai</groupId>-->
+<!--				<artifactId>spring-ai-bom</artifactId>-->
+<!--				<version>${spring-ai.version}</version>-->
+<!--				<type>pom</type>-->
+<!--				<scope>import</scope>-->
+<!--			</dependency>-->
+<!--		</dependencies>-->
+<!--	</dependencyManagement>-->
+
+<!--	<build>-->
+<!--		<plugins>-->
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--			</plugin>-->
+<!--		</plugins>-->
+<!--	</build>-->
+
+<!--</project>-->
