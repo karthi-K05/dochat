@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #09090b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(63, 63, 70, 0.45), transparent 28rem),
+    radial-gradient(circle at 85% 0%, rgba(39, 39, 42, 0.7), transparent 28rem),
+    #09090b;
+  color: #fafafa;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: content-box;
+}
+
+.markdown-body {
+  color: #e4e4e7;
+  line-height: 1.75;
+}
+
+.markdown-body p {
+  margin: 0.65rem 0;
+}
+
+.markdown-body p:first-child {
+  margin-top: 0;
+}
+
+.markdown-body p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  margin: 0.7rem 0;
+  padding-left: 1.3rem;
+}
+
+.markdown-body code {
+  border-radius: 0.45rem;
+  background: rgba(39, 39, 42, 0.9);
+  padding: 0.13rem 0.35rem;
+  color: #fafafa;
+}
+
+.markdown-body pre {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(63, 63, 70, 0.8);
+  background: rgba(24, 24, 27, 0.9);
+  padding: 1rem;
+}
